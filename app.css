@@ -5,3 +5,13 @@
 .bg-blue {
     background-color: blue;
 }
+
+.done {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.todo {
+    font-weight: bold;
+    color: brown;
+}

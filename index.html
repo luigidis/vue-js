@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
 </head>
 <body>
-    <div id="root">
+    <!-- <div id="root">
         <h1 :id="idTitolo">
              {{ toUpper(titolo) }}
         </h1>
@@ -20,6 +20,73 @@
         <button v-on:click="saluta">Clicca qui</button>
         <button @click="toggleClass">CLicca qui</button>
         <button v-on:mouseleave="saluta">Passa da qui</button>
+    </div> -->
+    <div id="root"> 
+        <h1>{{title}}</h1>
+        <div>
+            <button @click="onToggle">
+                <!-- <span v-if="show===false">Mostra Foto</span> -->
+                <!-- <span v-else>Nascondi Foto</span> -->
+                {{ show ? 'nascondi foto' : 'mostra foto'}}
+            </button>
+        </div>
+        <div v-if="show === true">
+            <img :src="imgSrc" alt="">
+        </div>
+        <div v-else>
+            la foto è nascosta
+        </div>
+        <div v-show="show === true">
+            <img :src="imgSrc" alt="">
+        </div>
+        <div>
+            <li>
+                {{nomi[0]}}
+            </li>
+            <li>
+                {{nomi[1]}}
+            </li>
+        </div>
+        <ul>
+            <!-- <li v-for="(element,index) in array">
+
+            </li> -->
+            <li v-for="(element,index) in nomi">
+                {{index}} - {{ element }}
+            </li>
+            <li v-for="element in nomi">
+                {{ element }}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(value, key) in user">
+                {{key}} - {{value}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="n in 10">
+                {{n}}
+            </li>
+        </ul>
+        <h2>Todo List</h2>
+        <ul>
+            <li @click="todo.done = !todo.done" :class=" todo.done ? 'done' : 'todo'" v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+        <h2>Task Completate</h2>
+        <ul>
+            <!-- <div v-for="todo in todos">
+                <li v-if="todo.done">
+                    {{ todo.text }}
+                </li>
+            </div> -->
+            <template v-for="todo in todos">
+                <li v-if="todo.done">
+                    {{todo.text}}
+                </li>
+            </template>
+        </ul>
     </div>
 
 
